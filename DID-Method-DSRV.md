@@ -2,6 +2,7 @@
 
 ## Summary
 The purpose of DSRV DID is to be able to prove ownership of addresses of various heterogeneous blockchains through a single DID. Through this, users can submit and use proof that they control a specific address, such as moving assets through a blockchain bridge operated by a third party, or withdrawing from a centralized exchange that requires KYC.
+Each blockchain has its own address system. And through Mnemonic and [bip44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki), a unique private key for each blockchain is generated. The goal is to manage these addresses as a single DID by issuing a VC using the unique signature system of each address blockchain through the DSRV DID.
 
 ## DSRV DID Scheme
 DSRV decentralized identifiers(DID) is of the following format:
@@ -57,9 +58,11 @@ DSRV DID Document Example:
 * Therefore, the resolver must search the API and the blockchain together.
 
 
-## Security and Privacy Considerations
-* DID Document and Iddentifier are created through the wallet [@dsrv/kms](https://www.npmjs.com/package/@dsrv/kms), and security is maintained as long as your private key is not exposed.
-* DID Document does not contain personal information.
+## Security Considerations
+* DID Document and Identifier are created through the wallet [@dsrv/kms](https://www.npmjs.com/package/@dsrv/kms), and security is maintained as long as your private key is not exposed.
+
+## Privacy Considerations
+* Personal information is stored outside the blockchain, and DID Documents do not contain any personal information.
 
 ## References
 [1]. W3C Decentralized Identifiers (DIDs) v1.0, https://w3c.github.io/did-core/
